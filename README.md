@@ -2,7 +2,7 @@
 ## Key concepts
 - Inheritance and Composition
 - Typescript generics
-- <K extends keyof T> as in 
+- `<K extends keyof T>` as in 
   ```js
   getSomething<K extends keyof T>(key: K): T[K] => {}
   ```
