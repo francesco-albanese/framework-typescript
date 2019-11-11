@@ -13,15 +13,12 @@ import { User, UserProps } from "./models/User";
 
 // user.fetch();
 
-const collection = new Collection<User, UserProps>(
-  'http://localhost:3000/users',
-  (json: UserProps): User => User.buildUser(json)
-);
+const userCollection = User.buildUserCollection();
 
-collection.on('fetch', () => {
-  console.log(collection.models);
+userCollection.on('change', () => {
+  console.log(userCollection.models);
 })
-collection.fetch();
+userCollection.fetch();
 
 
 

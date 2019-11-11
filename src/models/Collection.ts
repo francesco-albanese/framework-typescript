@@ -2,6 +2,10 @@ import axios from 'axios';
 
 import { Eventing } from './Eventing';
 
+/**
+ * T = type of model
+ * K = type of json data
+ */
 export class Collection<T, K> {
   models: T[] = [];
   events: Eventing = new Eventing();
@@ -26,7 +30,7 @@ export class Collection<T, K> {
         this.models.push(this.deserialize(attrs));
       });
       this.deserialize(data);
-      this.trigger('fetch');
+      this.trigger('change');
     } catch (e) {
       throw new Error(e.message);
     }
