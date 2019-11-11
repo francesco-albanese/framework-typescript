@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosError, AxiosPromise } from 'axios';
+import axios from 'axios';
 
 interface HasId {
   id?: number;
