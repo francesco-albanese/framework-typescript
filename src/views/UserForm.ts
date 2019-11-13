@@ -21,6 +21,8 @@ export class UserForm {
     return `
       <div>User name: ${this.model.get('name')}</div>
       <div>User age: ${this.model.get('age')}</div>
+      <input type="text" class="input-name" />
+      <button class="change-name">Change Name</button>
       <button class="set-random-age">Set random age</button>
     `;
   }
@@ -40,12 +42,16 @@ export class UserForm {
 
   eventsMap(): EventMap {
     return {
-      'click:.set-random-age': this.onSetAgeClick
+      'click:.set-random-age': this.onSetAgeClick,
+      'click:.change-name': this.onChangeName
     };
   }
 
-  onButtonClick(): void {
-    console.log('hello from on button click');
+  onChangeName = (): void => {
+    const input = this.parent.querySelector('input');
+    if (input) {
+      this.model.set({ name: input.value });
+    }
   }
 
   onSetAgeClick = (): void => {
@@ -54,7 +60,7 @@ export class UserForm {
 
   render(): void {
     this.parent.innerHTML = '';
-    
+
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
 

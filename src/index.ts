@@ -2,15 +2,21 @@ import { Collection } from "./models/Collection";
 import { User, UserProps } from "./models/User";
 import { UserForm } from "./views/UserForm";
 
-const userForm = new UserForm(
-  document.querySelector('#root'),
-  User.buildUser({
-    name: 'Francesco',
-    age: 33
-  })
-);
+const root = document.querySelector('#root');
 
-userForm.render();
+if (root) {
+  const userForm = new UserForm(
+    root,
+    User.buildUser({
+      name: 'Francesco',
+      age: 33
+    })
+  );
+  userForm.render();
+} else {
+  throw new Error('Root element not found!');
+}
+
 
 // const user = User.buildUser({
 //   id: 1,
