@@ -1,5 +1,16 @@
 import { Collection } from "./models/Collection";
 import { User, UserProps } from "./models/User";
+import { UserForm } from "./views/UserForm";
+
+const userForm = new UserForm(
+  document.querySelector('#root'),
+  User.buildUser({
+    name: 'Francesco',
+    age: 33
+  })
+);
+
+userForm.render();
 
 // const user = User.buildUser({
 //   id: 1,
