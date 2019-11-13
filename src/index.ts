@@ -1,18 +1,29 @@
+import { UserEdit } from './views/UserEdit';
 import { Collection } from "./models/Collection";
 import { User, UserProps } from "./models/User";
 import { UserForm } from "./views/UserForm";
 
+
 const root = document.querySelector('#root');
 
 if (root) {
-  const userForm = new UserForm(
+  // const userForm = new UserForm(
+  //   root,
+  //   User.buildUser({
+  //     name: 'Francesco',
+  //     age: 33
+  //   })
+  // );
+  // userForm.render();
+  const userEdit = new UserEdit(
     root,
     User.buildUser({
       name: 'Francesco',
       age: 33
     })
   );
-  userForm.render();
+  userEdit.render();
+  console.log(userEdit);
 } else {
   throw new Error('Root element not found!');
 }

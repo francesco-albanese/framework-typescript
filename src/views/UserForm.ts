@@ -18,7 +18,7 @@ export class UserForm extends View<User, UserProps> {
     `;
   }
 
-  eventsMap(): EventMap {
+  eventsMap = (): EventMap => {
     return {
       'click:.set-random-age': this.onSetAgeClick,
       'click:.change-name': this.onChangeName,
